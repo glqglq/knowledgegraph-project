@@ -45,7 +45,6 @@ public class CreateIndex {
 		List<org.bson.Document> documents = new ArrayList<org.bson.Document>();
 
 		collection.drop();
-		;
 
 		for (int i = 0; i < files.length; i++) {
 			InputStream in = new FileInputStream(files[i]);
@@ -58,6 +57,7 @@ public class CreateIndex {
 			} else if (fileName.endsWith("doc")) {
 				WordExtractor w = new WordExtractor(in);
 				documents.add(new org.bson.Document("filename", fileName).append("content", w.getText()));
+				w.close();
 			}
 		}
 		collection.insertMany(documents);
@@ -72,7 +72,7 @@ public class CreateIndex {
 			while (cursor.hasNext()) {
 				org.bson.Document bsonDoc = org.bson.Document.parse(cursor.next().toJson());
 				Document doc = new Document();
-				System.out.println(bsonDoc.getString("filename"));
+//				System.out.println(bsonDoc.getString("filename"));
 				doc.add(new Field("filename", bsonDoc.getString("filename"), TextField.TYPE_STORED));
 				doc.add(new Field("content", bsonDoc.getString("content"), TextField.TYPE_STORED));
 				// Ð´ÈëIndexWriter

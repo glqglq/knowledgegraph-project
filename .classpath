@@ -24,5 +24,7 @@
 	<classpathentry kind="lib" path="lib/xmlbeans-2.6.0.jar"/>
 	<classpathentry kind="lib" path="lib/lucene-queryparser-6.6.0.jar"/>
 	<classpathentry kind="lib" path="lib/iKAnalyzer.jar"/>
+	<classpathentry kind="lib" path="lib/poi-3.17-beta1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-collections4-4.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
