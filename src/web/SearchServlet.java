@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.lucene.queryparser.classic.ParseException;
 
 import mylucene.Search;
 import net.sf.json.JSONArray;
@@ -19,20 +20,19 @@ public class SearchServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String searchStr = new String(request.getParameter("searchstr").getBytes("GB2312"),"UTF-8");
-		System.out.println(searchStr+ Integer.valueOf(request.getParameter("first")).intValue()
-				+ Integer.valueOf(request.getParameter("last")).intValue());
-		//±à½âÂë
-//		try {
-//			JSONArray json = Search.search(request.getParameter("searchstr"),
-//					Integer.getInteger(request.getParameter("first")),
-//					Integer.getInteger(request.getParameter("last")));
-//			response.setCharacterEncoding("GB2113");
-//			response.getWriter().write(json.toString());
-//			System.out.println(json.toString());
-//		} catch (ParseException e) {
-//			e.printStackTrace();
-//		}
+		String searchStr = new String(request.getParameter("searchstr").getBytes("iso8859-1"), "gbk");
+//		 System.out.println(searchStr+
+//		 Integer.valueOf(request.getParameter("first")).intValue()
+//		 + Integer.valueOf(request.getParameter("last")).intValue());
+		// ±à½âÂë
+//		System.out.println(searchStr);
+		JSONArray json;
+		json = Search.search(searchStr, Integer.valueOf(request.getParameter("first")).intValue(),
+				Integer.valueOf(request.getParameter("last")).intValue());
+		System.out.println(json);
+		response.setCharacterEncoding("GB2312");
+		response.getWriter().write(json.toString());
+		System.out.println(json.toString());
 	}
 
 }

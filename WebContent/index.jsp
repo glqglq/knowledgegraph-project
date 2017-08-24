@@ -6,39 +6,44 @@
 <meta http-equiv="Content-Type" content="text/html; charset=GB2312">
 <title>Insert title here</title>
 <script language="javascript">
-	function onclickAjax() {
-		var xmlHttp;
-		//分浏览器创建XMLHttp对象
+	//创建XMLHttp对象
+	function create() {
 		if (window.XMLHttpRequest) {
 			xmlHttp = new XMLHttpRequest();
 		} else if (window.ActiveXObject) {
 			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP")
 		}
-		//设置请求类型
-		xmlHttp
-				.open("POST", "test.do?method=ajaxTest&&msg=" + new Date(),
-						true);
-		//回调函数
-		xmlHttp.onreadystatechange = function() {
-			if (xmlHttp.readyState == 4) {
-				if (xmlHttp.status == 200) {
-					document.getElementById("testid").value = xmlHttp.responseText;
-				} else {
-					alert("AJAX服务器返回错误！");
-				}
+	}
+	//回调函数
+	function callback() {
+		if (xmlHttp.readyState == 4) {
+			if (xmlHttp.status == 200) {
+				//要实现的操作
+				var xmlDoc=xmlHttp.responseText;
+				var data=eval(xmlDoc);
+                alert(data[0].score+","+data[0].fileName+","+data[0].content);
+                alert(data[1].score+","+data[1].fileName+","+data[1].content);
+			} else {
+				alert("AJAX服务器返回错误！");
 			}
 		}
-		//发送请求
+	}
+	function run(url) {
+		create();
+		xmlHttp.open("POST", url, true);
+		xmlHttp.onreadystatechange = callback;
 		xmlHttp.send();
+	}
+	function ajaxJson() {
+		run("test.do?method=jsonTest&&msg=" + new Date());
 	}
 </script>
 </head>
 <body>
 	<form action="SearchServlet" method="post">
-		<input type="text" name="searchstr"/><br> 
-		<input type="text" name="first"/><br>
-		<input type="text" name="last"/><br>
-		<input type="submit" value="提交"/>
+		<input type="text" name="searchstr" /><br> <input type="text"
+			name="first" /><br> <input type="text" name="last" /><br>
+		<input type="submit" value="提交" />
 	</form>
 </body>
 </html>
