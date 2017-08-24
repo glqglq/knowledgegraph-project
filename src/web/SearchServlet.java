@@ -21,18 +21,16 @@ public class SearchServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String searchStr = new String(request.getParameter("searchstr").getBytes("iso8859-1"), "gbk");
-//		 System.out.println(searchStr+
-//		 Integer.valueOf(request.getParameter("first")).intValue()
+//		 System.out.println(searchStr+Integer.valueOf(request.getParameter("first")).intValue()
 //		 + Integer.valueOf(request.getParameter("last")).intValue());
-		// ±à½âÂë
 //		System.out.println(searchStr);
+		// ±à½âÂë
 		JSONArray json;
 		json = Search.search(searchStr, Integer.valueOf(request.getParameter("first")).intValue(),
 				Integer.valueOf(request.getParameter("last")).intValue());
 		System.out.println(json);
-		response.setCharacterEncoding("GB2312");
+		response.setCharacterEncoding("utf-8");
 		response.getWriter().write(json.toString());
-		System.out.println(json.toString());
 	}
 
 }
