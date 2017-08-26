@@ -1,6 +1,8 @@
 package web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,17 +22,20 @@ public class SearchServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String searchStr = new String(request.getParameter("searchstr").getBytes("iso8859-1"), "gbk");
+		String searchStr = request.getParameter("searchstr");
 //		 System.out.println(searchStr+Integer.valueOf(request.getParameter("first")).intValue()
 //		 + Integer.valueOf(request.getParameter("last")).intValue());
-//		System.out.println(searchStr);
+		System.out.println(searchStr);
 		// ±à½âÂë
 		JSONArray json;
 		json = Search.search(searchStr, Integer.valueOf(request.getParameter("first")).intValue(),
 				Integer.valueOf(request.getParameter("last")).intValue());
 		System.out.println(json);
 		response.setCharacterEncoding("utf-8");
-		response.getWriter().write(json.toString());
+		PrintWriter out = response.getWriter();
+		out.write(json.toString());
+		out.close();
+//		out.println("<script>window.location.href = \"url\"</script>");
 	}
 
 }

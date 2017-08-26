@@ -1,21 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=GB2312" pageEncoding="GB2312"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=GB2312">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-<title>ËÑË÷ÒıÇæ</title>
+<title>æœç´¢å¼•æ“</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/index.css" rel="stylesheet" type="text/css" />
-<script language="javascript">
-	function ajaxjson() {
-		var searchstr = encodeURI(encodeURI($("[name=searchstr]").val()));
-/* 		var first = $("[name=first]").val();
-		var last = $("[name=last]").val(); */
-		$.getJSON('SearchServlet?' + 'searchstr=' + searchstr + '&first='
-				+ '0' + '&last=' + '9', function(data) {
-			console.info(data);
-		})
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+<script language="javascript" type="text/javascript">
+
+	function geturl() {
+		console.info('hahaha')
+		window.location.href = "result.jsp?searchstr="
+				+ document.getElementsByName("searchstr")[0].value
+				+ "&first=0&last=9";
 	}
 </script>
 </head>
@@ -28,28 +28,28 @@
 				</h1>
 				<div class="inputArea">
 					<input type="text" name="searchstr" class="searchInput" />
-<!-- 				<br><input type="text" name="first" class="searchInput" /><br> 
+					<!-- 				<br><input type="text" name="first" class="searchInput" /><br> 
 					<input type="text" name="last" class="searchInput" />  -->
-						<input
-						type="button" class="searchButton" onclick="ajaxjson()" />
+					<input type="button" class="searchButton" onclick="geturl()" />
 					<ul class="dataList">
-						<li>ÈçºÎÑ§ºÃÉè¼Æ</li>
-						<li>½çÃæÉè¼Æ</li>
-						<li>UIÉè¼ÆÅàÑµÒª¶àÉÙÇ®</li>
-						<li>Éè¼ÆÊ¦Ñ§Ï°</li>
-						<li>ÄÄÀïÓĞºÃµÄÍøÕ¾</li>
+						<li>å¦‚ä½•å­¦å¥½è®¾è®¡</li>
+						<li>ç•Œé¢è®¾è®¡</li>
+						<li>UIè®¾è®¡åŸ¹è®­è¦å¤šå°‘é’±</li>
+						<li>è®¾è®¡å¸ˆå­¦ä¹ </li>
+						<li>å“ªé‡Œæœ‰å¥½çš„ç½‘ç«™</li>
 					</ul>
 				</div>
 
 				<div class="historyArea">
 					<p class="history">
-						<label>ÈÈÃÅËÑË÷£º</label>
+						<label>çƒ­é—¨æœç´¢ï¼š</label>
 
 					</p>
 					<p class="history mysearch">
-						<label>ÎÒµÄËÑË÷£º</label> <span class="all-search"> <a
-							href="javascript:;">×¨×¢½çÃæÉè¼ÆÍøÕ¾</a> <a href="javascript:;">ÓÃ»§ÌåÑé</a>
-							<a href="javascript:;">»¥ÁªÍø</a> <a href="javascript:;">×Ê·ÑÌ×²Í</a>
+						<label>æˆ‘çš„æœç´¢ï¼š</label>
+						<!-- 						<span class="all-search"> <a
+							href="javascript:;">ä¸“æ³¨ç•Œé¢è®¾è®¡ç½‘ç«™</a> <a href="javascript:;">ç”¨æˆ·ä½“éªŒ</a>
+							<a href="javascript:;">äº’è”ç½‘</a> <a href="javascript:;">èµ„è´¹å¥—é¤</a> -->
 						</span>
 
 					</p>
@@ -61,123 +61,122 @@
 
 		<div class="foot">
 			<div class="wrap">
-				<div class="copyright">Copyright &copy;uimaker.com °æÈ¨ËùÓĞ
-					E-mail:admin@uimaker.com</div>
+				<div class="copyright">Copyright &copy;ä¸­å›½ç§‘å­¦é™¢è®¡ç®—æŠ€æœ¯ç ”ç©¶æ‰€ ç‰ˆæƒæ‰€æœ‰
+					E-mail:gongluqi@ict.ac.cn</div>
 			</div>
 		</div>
 	</div>
 </body>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/global.js"></script>
-<script type="text/javascript">
-	var suggest_url = "/suggest/"
-	var search_url = "/search/"
+<script>
+/* 	var suggest_url = "/suggest/"
+	 var search_url = "/search/"
 
-	$('.searchList').on('click', '.searchItem', function() {
-		$('.searchList .searchItem').removeClass('current');
-		$(this).addClass('current');
-	});
+	 $('.searchList').on('click', '.searchItem', function() {
+	 $('.searchList .searchItem').removeClass('current');
+	 $(this).addClass('current');
+	 });
 
-	function removeByValue(arr, val) {
-		for (var i = 0; i < arr.length; i++) {
-			if (arr[i] == val) {
-				arr.splice(i, 1);
-				break;
-			}
-		}
-	}
+	 function removeByValue(arr, val) {
+	 for (var i = 0; i < arr.length; i++) {
+	 if (arr[i] == val) {
+	 arr.splice(i, 1);
+	 break;
+	 }
+	 }
+	 }
 
-	// ËÑË÷½¨Òé
-	$(function() {
-		$('.searchInput').bind(
-				' input propertychange ',
-				function() {
-					var searchText = $(this).val();
-					var tmpHtml = ""
-					$.ajax({
-						cache : false,
-						type : 'get',
-						dataType : 'json',
-						url : suggest_url + "?s=" + searchText + "&s_type="
-								+ $(".searchItem.current").attr('data-type'),
-						async : true,
-						success : function(data) {
-							for (var i = 0; i < data.length; i++) {
-								tmpHtml += '<li><a href="' + search_url + '?q='
-										+ data[i] + '">' + data[i]
-										+ '</a></li>'
-							}
-							$(".dataList").html("")
-							$(".dataList").append(tmpHtml);
-							if (data.length == 0) {
-								$('.dataList').hide()
-							} else {
-								$('.dataList').show()
-							}
-						}
-					});
-				});
-	})
+	 // æœç´¢å»ºè®®
+	 $(function() {
+	 $('.searchInput').bind(
+	 ' input propertychange ',
+	 function() {
+	 var searchText = $(this).val();
+	 var tmpHtml = ""
+	 $.ajax({
+	 cache : false,
+	 type : 'get',
+	 dataType : 'json',
+	 url : suggest_url + "?s=" + searchText + "&s_type="
+	 + $(".searchItem.current").attr('data-type'),
+	 async : true,
+	 success : function(data) {
+	 for (var i = 0; i < data.length; i++) {
+	 tmpHtml += '<li><a href="' + search_url + '?q='
+	 + data[i] + '">' + data[i]
+	 + '</a></li>'
+	 }
+	 $(".dataList").html("")
+	 $(".dataList").append(tmpHtml);
+	 if (data.length == 0) {
+	 $('.dataList').hide()
+	 } else {
+	 $('.dataList').show()
+	 }
+	 }
+	 });
+	 });
+	 })
 
-	hideElement($('.dataList'), $('.searchInput'));
+	 hideElement($('.dataList'), $('.searchInput')); 
+*/
 </script>
 <script>
-	var searchArr;
-	//¶¨ÒåÒ»¸ösearchµÄ£¬ÅĞ¶Ïä¯ÀÀÆ÷ÓĞÎŞÊı¾İ´æ´¢£¨ËÑË÷ÀúÊ·£©
-	if (localStorage.search) {
-		//Èç¹ûÓĞ£¬×ª»»³É Êı×éµÄĞÎÊ½´æ·Åµ½searchArrµÄÊı×éÀï£¨localStorageÒÔ×Ö·û´®µÄĞÎÊ½´æ´¢£¬ËùÒÔÒª°ÑËü×ª»»³ÉÊı×éµÄĞÎÊ½£©
-		searchArr = localStorage.search.split(",")
-	} else {
-		//Èç¹ûÃ»ÓĞ£¬Ôò¶¨ÒåsearchArrÎªÒ»¸ö¿ÕµÄÊı×é
-		searchArr = [];
-	}
-	//°Ñ´æ´¢µÄÊı¾İÏÔÊ¾³öÀ´×÷ÎªËÑË÷ÀúÊ·
-	MapSearchArr();
+	/* 	var searchArr;
+	 //å®šä¹‰ä¸€ä¸ªsearchçš„ï¼Œåˆ¤æ–­æµè§ˆå™¨æœ‰æ— æ•°æ®å­˜å‚¨ï¼ˆæœç´¢å†å²ï¼‰
+	 if (localStorage.search) {
+	 //å¦‚æœæœ‰ï¼Œè½¬æ¢æˆ æ•°ç»„çš„å½¢å¼å­˜æ”¾åˆ°searchArrçš„æ•°ç»„é‡Œï¼ˆlocalStorageä»¥å­—ç¬¦ä¸²çš„å½¢å¼å­˜å‚¨ï¼Œæ‰€ä»¥è¦æŠŠå®ƒè½¬æ¢æˆæ•°ç»„çš„å½¢å¼ï¼‰
+	 searchArr = localStorage.search.split(",")
+	 } else {
+	 //å¦‚æœæ²¡æœ‰ï¼Œåˆ™å®šä¹‰searchArrä¸ºä¸€ä¸ªç©ºçš„æ•°ç»„
+	 searchArr = [];
+	 }
+	 //æŠŠå­˜å‚¨çš„æ•°æ®æ˜¾ç¤ºå‡ºæ¥ä½œä¸ºæœç´¢å†å²
+	 MapSearchArr();
 
-	function add_search() {
-		var val = $(".searchInput").val();
-		if (val.length >= 2) {
-			//µã»÷ËÑË÷°´Å¥Ê±£¬È¥ÖØ
-			KillRepeat(val);
-			//È¥ÖØºó°ÑÊı×é´æ´¢µ½ä¯ÀÀÆ÷localStorage
-			localStorage.search = searchArr;
-			//È»ºóÔÙ°ÑËÑË÷ÄÚÈİÏÔÊ¾³öÀ´
-			MapSearchArr();
-		}
+	 function add_search() {
+	 var val = $(".searchInput").val();
+	 if (val.length >= 2) {
+	 //ç‚¹å‡»æœç´¢æŒ‰é’®æ—¶ï¼Œå»é‡
+	 KillRepeat(val);
+	 //å»é‡åæŠŠæ•°ç»„å­˜å‚¨åˆ°æµè§ˆå™¨localStorage
+	 localStorage.search = searchArr;
+	 //ç„¶åå†æŠŠæœç´¢å†…å®¹æ˜¾ç¤ºå‡ºæ¥
+	 MapSearchArr();
+	 }
 
-		window.location.href = search_url + '?q=' + val + "&s_type="
-				+ $(".searchItem.current").attr('data-type')
+	 window.location.href = search_url + '?q=' + val + "&s_type="
+	 + $(".searchItem.current").attr('data-type')
 
-	}
+	 }
 
-	function MapSearchArr() {
-		var tmpHtml = "";
-		var arrLen = 0
-		if (searchArr.length >= 5) {
-			arrLen = 5
-		} else {
-			arrLen = searchArr.length
-		}
-		for (var i = 0; i < arrLen; i++) {
-			tmpHtml += '<a href="' + search_url + '?q=' + searchArr[i] + '">'
-					+ searchArr[i] + '</a>'
-		}
-		$(".mysearch .all-search").html(tmpHtml);
-	}
-	//È¥ÖØ
-	function KillRepeat(val) {
-		var kill = 0;
-		for (var i = 0; i < searchArr.length; i++) {
-			if (val === searchArr[i]) {
-				kill++;
-			}
-		}
-		if (kill < 1) {
-			searchArr.unshift(val);
-		} else {
-			removeByValue(searchArr, val)
-			searchArr.unshift(val)
-		}
-	}
+	 function MapSearchArr() {
+	 var tmpHtml = "";
+	 var arrLen = 0
+	 if (searchArr.length >= 5) {
+	 arrLen = 5
+	 } else {
+	 arrLen = searchArr.length
+	 }
+	 for (var i = 0; i < arrLen; i++) {
+	 tmpHtml += '<a href="' + search_url + '?q=' + searchArr[i] + '">'
+	 + searchArr[i] + '</a>'
+	 }
+	 $(".mysearch .all-search").html(tmpHtml);
+	 }
+	 //å»é‡
+	 function KillRepeat(val) {
+	 var kill = 0;
+	 for (var i = 0; i < searchArr.length; i++) {
+	 if (val === searchArr[i]) {
+	 kill++;
+	 }
+	 }
+	 if (kill < 1) {
+	 searchArr.unshift(val);
+	 } else {
+	 removeByValue(searchArr, val)
+	 searchArr.unshift(val)
+	 }
+	 } */
 </script>
 </html>

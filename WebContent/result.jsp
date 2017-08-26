@@ -1,89 +1,86 @@
 
+<%@ page language="java" contentType="text/html; charset=utf-8"%>
 <!DOCTYPE html >
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 <title>搜索引擎</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/result.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+<script type="text/javascript" src="js/pagination.js"></script>
+
 </head>
 <body>
-<div id="container">
-	<div id="hd" class="ue-clear">
-    	<a href="/"><div class="logo"></div></a>
-        <div class="inputArea">
-        	<input type="text" class="searchInput" value="linux"/>
-            <input type="button" class="searchButton" onclick="add_search()"/>
-        </div>
-    </div>
-    <div class="nav">
-    	<ul class="searchList">
-            <li class="searchItem current" data-type="article">文章</li>
-            <li class="searchItem" data-type="question">问答</li>
-            <li class="searchItem" data-type="job">职位</li>
-        </ul>
-    </div>
-	<div id="bd" class="ue-clear">
-        <div id="main">
-        	<div class="sideBar">
-            	
-                <div class="subfield">网站</div>
-                <ul class="subfieldContext">
-                	<li>
-                    	<span class="name">伯乐在线</span>
-						<span class="unit">(None)</span>
-                    </li>
-                    <li>
-                    	<span class="name">知乎</span>
-						<span class="unit">(9862)</span>
-                    </li>
-                    <li>
-                    	<span class="name">拉勾网</span>
-						<span class="unit">(9862)</span>
-                    </li>
-                    <li class="more">
-                    	<a href="javascript:;">
-                        	<span class="text">更多</span>
-                        	<i class="moreIcon"></i>
-                        </a>
-                    </li>
-                </ul>
-                
-                            
-                <div class="sideBarShowHide">
-                	<a href="javascript:;" class="icon"></a>
-                </div>
-            </div>
-            <div class="resultArea">
-            	<p class="resultTotal">
-                	<span class="info">找到约&nbsp;<span class="totalResult">45</span>&nbsp;条结果(用时<span class="time">0.643128</span>秒)，共约<span class="totalPage">5</span>页</span>
-                </p>
-                <div class="resultList">
-                    
-                    <div class="resultItem">
-                            <div class="itemHead">
-                                <a href="http://blog.jobbole.com/110058/"  target="_blank" class="title">每天一个 <span class="keyWord">Linux</span> 命令（58）： telnet 命令</a>
-                                <span class="divsion">-</span>
-                                <span class="fileType">
-                                    <span class="label">来源：</span>
-                                    <span class="value">伯乐在线</span>
-                                </span>
-                                <span class="dependValue">
-                                    <span class="label">得分：</span>
-                                    <span class="value">3.401155</span>
-                                </span>
-                            </div>
-                            <div class="itemBody">
-                                的远程控制Web服务器的方法。
-但是，telnet因为采用明文传送报文，安全性不好，很多<span class="keyWord">Linux</span>服务器都不开放telnet服务，而改用更安全的ssh方式了。但仍然有很多别的系统可能采用了telnet方式 is '^]'.
-localhost (<span class="keyWord">Linux</span> release 2.6.18-274.18.1.el5 #1 SMP Thu Feb 9 12:45:44 EST 2012) (1)
+	<div id="container">
+		<div id="hd" class="ue-clear">
+			<a href="/"><div class="logo"></div></a>
+			<div class="inputArea">
+				<input type="text" class="searchInput" value='${param["searchstr"]}' /> <input
+					type="button" class="searchButton" onclick="add_search()" />
+			</div>
+		</div>
+		<div class="nav">
+			<ul class="searchList">
+				<li class="searchItem current" data-type="article">文章</li>
+				<li class="searchItem" data-type="question">问答</li>
+				<li class="searchItem" data-type="job">职位</li>
+			</ul>
+		</div>
+		<div id="bd" class="ue-clear">
+			<div id="main">
+				<div class="sideBar">
 
-login).Escape character is '^]'.localhost (<span class="keyWord">Linux</span> release 2.6.18-274.18.1.el5 #1 SMP Thu Feb 9 12:45:44 EST 2012登录，然后再用su -切到root用户。
-本系列文章：
-每天一个 <span class="keyWord">Linux</span> 命令（1）：ls命令
-每天一个 <span class="keyW
+					<div class="subfield">网站</div>
+					<ul class="subfieldContext">
+						<li><span class="name">伯乐在线</span> <span class="unit">(None)</span>
+						</li>
+						<li><span class="name">知乎</span> <span class="unit">(9862)</span>
+						</li>
+						<li><span class="name">拉勾网</span> <span class="unit">(9862)</span>
+						</li>
+						<li class="more"><a href="javascript:;"> <span
+								class="text">更多</span> <i class="moreIcon"></i>
+						</a></li>
+					</ul>
+
+
+					<div class="sideBarShowHide">
+						<a href="javascript:;" class="icon"></a>
+					</div>
+				</div>
+				<div class="resultArea">
+					<p class="resultTotal">
+						<span class="info">找到约&nbsp;<span class="totalResult">45</span>&nbsp;条结果(用时<span
+							class="time">0.643128</span>秒)，共约<span class="totalPage">5</span>页
+						</span>
+					</p>
+					<div class="resultList">
+
+						<div class="resultItem">
+							<div class="itemHead">
+								<a href="http://blog.jobbole.com/110058/" target="_blank"
+									class="title">每天一个 <span class="keyWord">Linux</span>
+									命令（58）： telnet 命令
+								</a> <span class="divsion">-</span> <span class="fileType"> <span
+									class="label">来源：</span> <span class="value">伯乐在线</span>
+								</span> <span class="dependValue"> <span class="label">得分：</span>
+									<span class="value">3.401155</span>
+								</span>
+							</div>
+							<div class="itemBody">
+								的远程控制Web服务器的方法。 但是，telnet因为采用明文传送报文，安全性不好，很多<span
+									class="keyWord">Linux</span>服务器都不开放telnet服务，而改用更安全的ssh方式了。但仍然有很多别的系统可能采用了telnet方式
+								is '^]'. localhost (<span class="keyWord">Linux</span> release
+								2.6.18-274.18.1.el5 #1 SMP Thu Feb 9 12:45:44 EST 2012) (1)
+
+								login).Escape character is '^]'.localhost (<span class="keyWord">Linux</span>
+								release 2.6.18-274.18.1.el5 #1 SMP Thu Feb 9 12:45:44 EST
+								2012登录，然后再用su -切到root用户。 本系列文章： 每天一个 <span class="keyWord">Linux</span>
+								命令（1）：ls命令 每天一个 
                             </div>
                             <div class="itemFoot">
                                 <span class="info">
@@ -150,8 +147,7 @@ wipe – 在 <span class="keyWord">Linux</span> 中安全擦除文件
 		
 
 
-3、 <span class="
-                            </div>
+3、</div>
                             <div class="itemFoot">
                                 <span class="info">
                                     <label>网站：</label>
@@ -194,8 +190,7 @@ wipe – 在 <span class="keyWord">Linux</span> 中安全擦除文件
 每天一个 <span class="keyWord">Linux</span> 命令（6）：rmdir 命令
 每天一个 <span class="keyWord">Linux</span> 命令（7）：mv命令
 每天一个 <span class="keyWord">Linux</span> 命令（8）：cp 命令
-每天一个 <span class="
-                            </div>
+每天一个 </div>
                             <div class="itemFoot">
                                 <span class="info">
                                     <label>网站：</label>
@@ -513,20 +508,29 @@ Gnome Terminal 是最受欢迎的终端仿真器之一，
 
 <div id="foot">Copyright &copy;projectsedu.com 版权所有  E-mail:admin@projectsedu.com</div>
 </body>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/global.js"></script>
-<script type="text/javascript" src="js/pagination.js"></script>
-<script type="text/javascript">
-    var search_url = "/search/"
+<script language="javascript">
+	$(document).ready(
+					function() {
+						var searchstr = document.getElementsByClassName("searchInput")[0].value;
+						console.info(searchstr);						
 
-	$('.searchList').on('click', '.searchItem', function(){
+						$.getJSON('SearchServlet?' + 'searchstr=' + searchstr
+								+ '&first=' + '0' + '&last=' + '10', function(data) {
+							console.info(data);
+						})
+					});
+</script>
+<script type="text/javascript">
+    var search_url = "SearchServlet"
+
+/* 	$('.searchList').on('click', '.searchItem', function(){
 		$('.searchList .searchItem').removeClass('current');
 		$(this).addClass('current');	
-	});
+	}); */
 	
-	$.each($('.subfieldContext'), function(i, item){
+/* 	$.each($('.subfieldContext'), function(i, item){
 		$(this).find('li:gt(2)').hide().end().find('li:last').show();		
-	});
+	}); */
 
 	function removeByValue(arr, val) {
       for(var i=0; i<arr.length; i++) {
@@ -536,7 +540,7 @@ Gnome Terminal 是最受欢迎的终端仿真器之一，
         }
       }
     }
-	$('.subfieldContext .more').click(function(e){
+/* 	$('.subfieldContext .more').click(function(e){
 		var $more = $(this).parent('.subfieldContext').find('.more');
 		if($more.hasClass('show')){
 			
@@ -551,9 +555,9 @@ Gnome Terminal 是最受欢迎的终端仿真器之一，
 			$(this).parent('.subfieldContext').find('li:gt(2)').show();	
 		}
 		
-	});
+	}); */
 	
-	$('.sideBarShowHide a').click(function(e) {
+/* 	$('.sideBarShowHide a').click(function(e) {
 		if($('#main').hasClass('sideBarHide')){
 			$('#main').removeClass('sideBarHide');
 			$('#container').removeClass('sideBarHide');
@@ -562,8 +566,8 @@ Gnome Terminal 是最受欢迎的终端仿真器之一，
 			$('#container').addClass('sideBarHide');
 		}
         
-    });
-	var key_words = "java"
+    }); */
+/* 	var key_words = "java" */
 	//分页
 	$(".pagination").pagination(45, {
 		current_page :0, //当前页码
@@ -572,7 +576,8 @@ Gnome Terminal 是最受欢迎的终端仿真器之一，
 		callback :pageselectCallback
 	});
 	function pageselectCallback(page_id, jq) {
-		window.location.href=search_url+'?q='+key_words+'&p='+page_id
+		/* window.location.href=search_url+'?q='+key_words+'&p='+page_id */
+		window.location.href=search_url+'?searchstr=' + +'&first=' + + '&last=';
 	}
 	
 	setHeight();
