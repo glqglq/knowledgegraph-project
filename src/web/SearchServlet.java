@@ -28,8 +28,8 @@ public class SearchServlet extends HttpServlet {
 		System.out.println(searchStr);
 		// ±à½âÂë
 		JSONArray json;
-		json = Search.search(searchStr, Integer.valueOf(request.getParameter("first")).intValue(),
-				Integer.valueOf(request.getParameter("last")).intValue());
+		json = Search.search(searchStr, (Integer.valueOf(request.getParameter("page_id")).intValue() - 1) * 10,
+				Integer.valueOf(request.getParameter("page_id")).intValue() * 10);
 		System.out.println(json);
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();

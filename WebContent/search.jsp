@@ -12,10 +12,10 @@
 <script language="javascript" type="text/javascript">
 
 	function geturl() {
-		console.info('hahaha')
+		console.info('hahaha');
 		window.location.href = "result.jsp?searchstr="
 				+ document.getElementsByName("searchstr")[0].value
-				+ "&first=0&last=9";
+				+ "&page_id=1";
 	}
 </script>
 </head>

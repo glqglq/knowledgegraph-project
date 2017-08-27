@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.index.DirectoryReader;
@@ -18,6 +20,7 @@ import org.wltea.analyzer.lucene.IKAnalyzer;
 
 import mybean.SearchResult;
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 public class Search {
 //	static String indexDir = "C:\\Users\\LuckyGong\\Documents\\GitHub\\knowledgegraph-project\\index";
@@ -27,6 +30,8 @@ public class Search {
 	public static JSONArray search(String searchStr, int first, int last) throws IOException {
 //		System.out.println(indexDir);
 //		System.out.println(searchStr);
+		long startMili=System.currentTimeMillis();
+		
 		Analyzer analyzer = new IKAnalyzer(false);
 		Directory directory = FSDirectory.open(indexDirPath);
 		DirectoryReader ireader = DirectoryReader.open(directory);
@@ -48,9 +53,18 @@ public class Search {
 				list.add(t);
 				// System.out.println(isearcher.doc(hits[i].doc).get("filename"));
 			}
-
+			JSONObject jb = new JSONObject();
+			Map rowData = new HashMap();
+			rowData.put("item_count", hits.length);
+			
+		    rowData.put("page_count", Math.ceil(hits.length * 1.0/ 10));
+		    long endMili=System.currentTimeMillis();
+		    rowData.put("duration", (endMili-startMili)*1.0/1000);
+		    jb.accumulateAll(rowData);
+			JSONArray json = JSONArray.fromObject(list);
+			json.add(jb);
 //			System.out.println(JSONArray.fromObject(list).toString());
-			return JSONArray.fromObject(list);
+			return json ;
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
