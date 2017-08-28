@@ -54,7 +54,7 @@ public class Search {
 				// System.out.println(isearcher.doc(hits[i].doc).get("filename"));
 			}
 			JSONObject jb = new JSONObject();
-			Map rowData = new HashMap();
+			Map<String, Number> rowData = new HashMap<String, Number>();
 			rowData.put("item_count", hits.length);
 			
 		    rowData.put("page_count", Math.ceil(hits.length * 1.0/ 10));

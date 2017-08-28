@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.lucene.queryparser.classic.ParseException;
 
 import mylucene.Search;
 import net.sf.json.JSONArray;
