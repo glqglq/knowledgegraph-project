@@ -31,15 +31,15 @@
 					<!-- 				<br><input type="text" name="first" class="searchInput" /><br> 
 					<input type="text" name="last" class="searchInput" />  -->
 					<input type="button" class="searchButton" onclick="geturl()" />
-					<ul class="dataList">
+<!-- 					<ul class="dataList">
 						<li>如何学好设计</li>
 						<li>界面设计</li>
 						<li>UI设计培训要多少钱</li>
 						<li>设计师学习</li>
 						<li>哪里有好的网站</li>
-					</ul>
+					</ul> -->
 				</div>
-
+<!-- 						
 				<div class="historyArea">
 					<p class="history">
 						<label>热门搜索：</label>
@@ -47,13 +47,14 @@
 					</p>
 					<p class="history mysearch">
 						<label>我的搜索：</label>
-						<!-- 						<span class="all-search"> <a
+						<span class="all-search"> <a
 							href="javascript:;">专注界面设计网站</a> <a href="javascript:;">用户体验</a>
-							<a href="javascript:;">互联网</a> <a href="javascript:;">资费套餐</a> -->
+							<a href="javascript:;">互联网</a> <a href="javascript:;">资费套餐</a>
 						</span>
 
 					</p>
 				</div>
+ -->
 			</div>
 			<!-- End of main -->
 		</div>

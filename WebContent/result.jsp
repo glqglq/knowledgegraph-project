@@ -17,10 +17,10 @@
 <body>
 	<div id="container">
 		<div id="hd" class="ue-clear">
-			<a href="/"><div class="logo"></div></a>
+			<a href="search.jsp"><div class="logo"></div></a>
 			<div class="inputArea">
 				<input type="text" class="searchInput" value='${param["searchstr"]}' /> <input
-					type="button" class="searchButton" onclick="add_search()" />
+					type="button" class="searchButton" onclick="geturl()" />
 			</div>
 		</div>
 <!-- 		<div class="nav">
@@ -99,10 +99,10 @@
 						$.getJSON('SearchServlet?' + 'searchstr=' + searchstr
 								+ '&page_id=' + page_id, function(data) {
 							console.info(data);
-							$(".totalResult").text(data[10].item_count);
-							$(".time").text(data[10].duration);
-							$(".totalPage").text(data[10].page_count);
-							for(var i = 0;i < 10;i++){
+							$(".totalResult").text(data[data.length - 1].item_count);
+							$(".time").text(data[data.length - 1].duration);
+							$(".totalPage").text(data[data.length - 1].page_count);
+							for(var i = 0;i < data.length - 1;i++){
 								$(".resultList").append('<div class="resultItem"><div class="itemHead"></div></div>');
 								$(".itemHead:last").append('<a target="_blank" class="title">' + data[i].fileName + '</a>');
 								$(".itemHead:last").append('<span class="divsion">-</span>');
@@ -124,6 +124,11 @@
 	function pageselectCallback(page_id, jq) {
 		/* window.location.href=search_url+'?q='+key_words+'&p='+page_id */
 		window.location.href='result.jsp?searchstr=' + document.getElementsByClassName("searchInput")[0].value +'&page_id=' + (page_id + 1);
+	}
+	function geturl() {
+		window.location.href = "result.jsp?searchstr="
+				+ document.getElementsByClassName("searchInput")[0].value
+				+ "&page_id=1";
 	}
 </script>
 <script type="text/javascript">
