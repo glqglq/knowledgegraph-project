@@ -25,7 +25,6 @@ public class SearchServlet extends HttpServlet {
 //		 System.out.println(searchStr+Integer.valueOf(request.getParameter("first")).intValue()
 //		 + Integer.valueOf(request.getParameter("last")).intValue());
 		System.out.println(searchStr);
-		// ±à½âÂë
 		JSONArray json;
 		json = Search.search(searchStr, (Integer.valueOf(request.getParameter("page_id")).intValue() - 1) * 10,
 				Integer.valueOf(request.getParameter("page_id")).intValue() * 10);
