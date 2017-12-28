@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import doc.structure.Doc;
+import extract.Doc;
 
 public class Terminology {
 	public static void getTerminologyFromTxt(Doc doc) {

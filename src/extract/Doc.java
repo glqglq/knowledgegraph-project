@@ -1,4 +1,4 @@
-package doc.structure;
+package extract;
 
 import java.io.BufferedReader;
 import java.io.File;

@@ -21,7 +21,7 @@ public class GetProperties {
 			String path = GetProperties.class.getClassLoader().getResource("").toString();
 //			path = path.substring(6, path.lastIndexOf("/WEB-INF/classes/") + 1) + "WEB-INF/classes/mylucene/settings.properties";
 //			System.out.println(path);
-			path = "C:\\Users\\dragon\\eclipse-workspace\\knowledgegraph-project\\src\\mylucene\\settings.properties";
+			path = "C:\\\\Users\\\\LuckyGong\\\\Documents\\\\Github\\\\knowledgegraph-project\\src\\mylucene\\settings.properties";
 			fis = new FileInputStream(new File(path));
 			prop.load(fis);
 			return prop.getProperty(str);			

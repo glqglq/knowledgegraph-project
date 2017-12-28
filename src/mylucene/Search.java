@@ -77,6 +77,6 @@ public class Search {
 	}
 
 	public static void main(String[] args) throws IOException, ParseException {
-		Search.search("Íõ´ºÓî", 0, 100);
+		Search.search("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", 0, 100);
 	}
 }
