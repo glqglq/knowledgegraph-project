@@ -16,11 +16,12 @@ public class GetProperties {
 
 	public static String getproperties(String str) {
 		InputStream fis = null;
-		Properties prop = new Properties();//ÊôÐÔ¼¯ºÏ¶ÔÏó 
+		Properties prop = new Properties();//ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ 
 		try{
 			String path = GetProperties.class.getClassLoader().getResource("").toString();
-			path = path.substring(6, path.lastIndexOf("/WEB-INF/classes/") + 1) + "WEB-INF/classes/mylucene/settings.properties";
+//			path = path.substring(6, path.lastIndexOf("/WEB-INF/classes/") + 1) + "WEB-INF/classes/mylucene/settings.properties";
 //			System.out.println(path);
+			path = "C:\\Users\\dragon\\eclipse-workspace\\knowledgegraph-project\\src\\mylucene\\settings.properties";
 			fis = new FileInputStream(new File(path));
 			prop.load(fis);
 			return prop.getProperty(str);			

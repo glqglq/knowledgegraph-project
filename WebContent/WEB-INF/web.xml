@@ -11,4 +11,13 @@
     <servlet-name>SearchServlet</servlet-name>
     <url-pattern>/SearchServlet</url-pattern>
   </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>ShowKnowledgeGraphServlet</servlet-name>
+    <servlet-class>web.ShowKnowledgeGraphServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowKnowledgeGraphServlet</servlet-name>
+    <url-pattern>/ShowKnowledgeGraphServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

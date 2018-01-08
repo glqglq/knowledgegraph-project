@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
 <!DOCTYPE html >
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -16,20 +15,19 @@
 </head>
 <body>
 	<div id="container">
-		<div id="hd" class="ue-clear">
+		<div id="hd" class="ue-clear" >
 			<a href="search.jsp"><div class="logo"></div></a>
 			<div class="inputArea">
 				<input type="text" class="searchInput" value='${param["searchstr"]}' /> <input
 					type="button" class="searchButton" onclick="geturl()" />
 			</div>
 		</div>
-<!-- 		<div class="nav">
+ 		<div class="nav">
 			<ul class="searchList">
-				<li class="searchItem current" data-type="article">文章</li>
-				<li class="searchItem" data-type="question">问答</li>
-				<li class="searchItem" data-type="job">职位</li>
+				<li class="searchItem current" data-type="article"><a href="search.jsp">搜索</a></li>
+				<li class="searchItem" data-type="question"><a href="showknowledgegraph.jsp?relationship_num=50">图谱</a></li>
 			</ul>
-		</div> -->
+		</div>
 		<div id="bd" class="ue-clear">
 			<div id="main">
 <!-- 				<div class="sideBar">

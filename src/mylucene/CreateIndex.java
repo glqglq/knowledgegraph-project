@@ -65,7 +65,7 @@ public class CreateIndex {
 
 	public static void createIndex() throws IOException {
 		try {
-			// Ë÷ÒýÄ¿Â¼ÅäÖÃ
+			// ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½ï¿½ï¿½
 			Directory directory = FSDirectory.open(Paths.get(indexDir));
 			IndexWriter iwriter = new IndexWriter(directory, config);
 			MongoCursor<org.bson.Document> cursor = collection.find().iterator();
@@ -75,7 +75,7 @@ public class CreateIndex {
 //				System.out.println(bsonDoc.getString("filename"));
 				doc.add(new Field("filename", bsonDoc.getString("filename"), TextField.TYPE_STORED));
 				doc.add(new Field("content", bsonDoc.getString("content"), TextField.TYPE_STORED));
-				// Ð´ÈëIndexWriter
+				// Ð´ï¿½ï¿½IndexWriter
 				iwriter.addDocument(doc);
 			}
 			iwriter.close();
