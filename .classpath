@@ -1,44 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="data"/>
-	<classpathentry kind="src" path="index"/>
-	<classpathentry kind="src" path="lib"/>
-	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
-	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_152"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v9.0"/>
+	<classpathentry kind="lib" path="lib/ansj_seg-5.0.1-all-in-one.jar"/>
+	<classpathentry kind="lib" path="lib/commons-beanutils-1.8.3.jar"/>
+	<classpathentry kind="lib" path="lib/commons-beanutils-1.9.3.jar"/>
+	<classpathentry kind="lib" path="lib/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-collections-3.2.2.jar"/>
+	<classpathentry kind="lib" path="lib/commons-collections4-4.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang-2.6.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/ezmorph-1.0.6.jar"/>
+	<classpathentry kind="lib" path="lib/iKAnalyzer.jar"/>
+	<classpathentry kind="lib" path="lib/json-lib-2.4-jdk15.jar"/>
 	<classpathentry kind="lib" path="lib/lucene-core-6.6.0.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-queryparser-6.6.0.jar"/>
 	<classpathentry kind="lib" path="lib/mongo-java-driver-3.5.0.jar"/>
+	<classpathentry kind="lib" path="lib/poi-3.17-beta1.jar"/>
 	<classpathentry kind="lib" path="lib/poi-ooxml-3.17-beta1.jar"/>
 	<classpathentry kind="lib" path="lib/poi-ooxml-schemas-3.17-beta1.jar"/>
 	<classpathentry kind="lib" path="lib/poi-scratchpad-3.17-beta1.jar"/>
 	<classpathentry kind="lib" path="lib/xmlbeans-2.6.0.jar"/>
-	<classpathentry kind="lib" path="lib/lucene-queryparser-6.6.0.jar"/>
-	<classpathentry kind="lib" path="lib/iKAnalyzer.jar"/>
-	<classpathentry kind="lib" path="lib/poi-3.17-beta1.jar"/>
-	<classpathentry kind="lib" path="lib/commons-collections4-4.1.jar"/>
-	<classpathentry kind="lib" path="lib/commons-beanutils-1.9.3.jar"/>
-	<classpathentry kind="lib" path="lib/commons-logging-1.2.jar"/>
-	<classpathentry kind="lib" path="lib/ezmorph-1.0.6.jar"/>
-	<classpathentry kind="lib" path="lib/json-lib-2.4-jdk15.jar"/>
-	<classpathentry kind="lib" path="lib/commons-lang-2.6.jar"/>
-	<classpathentry kind="lib" path="lib/commons-collections-3.2.2.jar"/>
-	<classpathentry kind="lib" path="lib/ansj_seg-5.0.1-all-in-one.jar"/>
-	<classpathentry kind="lib" path="lib/commons-beanutils-1.8.3.jar"/>
-	<classpathentry kind="lib" path="lib/commons-collections-3.2.1.jar"/>
-	<classpathentry kind="lib" path="lib/commons-logging-1.1.1.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v9.0">
-		<attributes>
-			<attribute name="owner.project.facets" value="jst.web"/>
-		</attributes>
-	</classpathentry>
-<<<<<<< HEAD
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_31">
-=======
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_152">
->>>>>>> 6e00568378d0718f1093656e8ab62d0e836215dd
-		<attributes>
-			<attribute name="owner.project.facets" value="java"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="output" path="build/classes"/>
+	<classpathentry kind="output" path="bin"/>
 </classpath>
