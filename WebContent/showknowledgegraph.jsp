@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e00568378d0718f1093656e8ab62d0e836215dd
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
 <!DOCTYPE html >
 <html xmlns="http://www.w3.org/1999/xhtml">

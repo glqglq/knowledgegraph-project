@@ -17,7 +17,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
 import doc.structure.Doc;
+=======
+import extract.Doc;
+>>>>>>> 6e00568378d0718f1093656e8ab62d0e836215dd
 import mylucene.Search;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
