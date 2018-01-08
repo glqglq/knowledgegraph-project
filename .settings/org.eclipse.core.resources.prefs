@@ -1,7 +1,8 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=6e00568378d0718f1093656e8ab62d0e836215dd
 eclipse.preferences.version=1
 encoding//WebContent/result.jsp=UTF-8
 encoding/<project>=UTF-8
-<<<<<<< HEAD
-=======
+encoding/library.properties=UTF-8
 separateDerivedEncodings=true
->>>>>>> 6e00568378d0718f1093656e8ab62d0e836215dd
